@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <title>Quotes</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    <main>
+        <div id="container">
+            <div class="corner " id="leftTop"></div>
+            <div class="corner" id="leftBottom"></div>
+            <div class="corner" id="rightTop"></div>
+            <div class="corner" id="rightBottom"></div>
+            <span id="author"></span>
+            <blockquote>
+                <p>
+                    <i>&ldquo;<span id="quote"></span>&rdquo;</i>
+                </p>
+            </blockquote>
+            <div id="next"> >> </div>
+        </div>
+    </main>
+    <footer>
+        <span title="marko.ivanovic.dev@gmail.com">CREATED BY
+            <a href="https://github.com/izatunela" target="_blank">MARKO</a></span>
+    </footer>
+    <script>
+        let container = document.getElementById('quote');
+        let author = document.getElementById('author');
+        let btn = document.getElementById('next');
+
+        window.onload = () => fetchQuote();
+
+        btn.addEventListener('click',()=>{
+            fetchQuote();
+        })
+
+        const fetchQuote = async () => {
+            response  = await fetch('/src/process.php')
+            quote = await response.json()
+            container.innerHTML = quote.body.replace(/\n/g,'<br>')
+            author.innerHTML = quote.author
+            console.log(quote)
+        }
+
+    </script>
+</body>
+</html>

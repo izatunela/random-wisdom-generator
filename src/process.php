@@ -1,0 +1,10 @@
+<?php
+ini_set('display_errors',1);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\QuotesController;
+
+$controller = new QuotesController;
+
+echo $controller->fetchQuote();
