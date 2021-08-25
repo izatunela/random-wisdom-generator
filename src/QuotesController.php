@@ -14,11 +14,9 @@ class QuotesController
     public function fetchQuote()
     {
         $file = $this->readQuotesFile();
-        $quotes = json_decode($file);
-        $totalQuotes = count($quotes->quotes);
-        $randomQuote = mt_rand(0,$totalQuotes-1);
-
-        $quote = $quotes->quotes[$randomQuote];
+        $quotes = json_decode($file,1);
+        $randomKey = array_rand($quotes['quotes'],1);
+        $quote = $quotes['quotes'][$randomKey];
 
         return json_encode($quote);
     }
