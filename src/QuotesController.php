@@ -11,7 +11,7 @@ class QuotesController
     /**
      * @return bool|string
      */
-    public function fetchQuote()
+    public function fetchRandomQuote()
     {
         $file = $this->readQuotesFile();
         $quotes = json_decode($file,1);

@@ -7,4 +7,4 @@ use App\QuotesController;
 
 $controller = new QuotesController;
 
-echo $controller->fetchQuote();
+echo $controller->fetchRandomQuote();
