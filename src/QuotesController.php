@@ -4,8 +4,17 @@ namespace App;
 
 class QuotesController
 {
+    /**
+     * @var bool|string
+     */
+    private $fileJsonContent;
+
+    /**
+     * Constructor
+     */
     public function __construct()
     {
+        $this->fileJsonContent = $this->readFile();
     }
 
     /**
@@ -13,10 +22,9 @@ class QuotesController
      */
     public function fetchRandomQuote()
     {
-        $file = $this->readQuotesFile();
-        $quotes = json_decode($file,1);
-        $randomKey = array_rand($quotes['quotes'],1);
-        $quote = $quotes['quotes'][$randomKey];
+        $allQuotes = json_decode($this->fileJsonContent,1);
+        $randomKey = array_rand($allQuotes['quotes'],1);
+        $quote = $allQuotes['quotes'][$randomKey];
 
         return json_encode($quote);
     }
@@ -24,7 +32,7 @@ class QuotesController
     /**
      * @return bool|string
      */
-    public function readQuotesFile()
+    private function readFile()
     {
         return file_get_contents(__DIR__.'/quotes.json');
     }
