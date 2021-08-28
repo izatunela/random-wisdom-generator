@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" >
     <title>Quotes</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <link rel="icon" href="/public/brain.jpg">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/brain.jpg">
 </head>
 <body>
     <main>
@@ -36,16 +36,14 @@
 
         btn.addEventListener('click',()=>{
             fetchQuote();
-        })
+        });
 
         const fetchQuote = async () => {
-            response  = await fetch('/src/process.php')
-            quote = await response.json()
-            container.innerHTML = quote.body.replace(/\n/g,'<br>')
-            author.innerHTML = quote.author
-            console.log(quote)
+            response  = await fetch('/process.php');
+            quote = await response.json();
+            container.innerHTML = quote.body.replace(/\n/g,'<br>');
+            author.innerHTML = quote.author;
         }
-
     </script>
 </body>
 </html>
