@@ -29,7 +29,8 @@ main {
     position:relative;
     top:-28px;
 }
-#next{
+#next,
+#prev{
     width: 50px;
     border-radius: 3px;
     margin: 0 auto;

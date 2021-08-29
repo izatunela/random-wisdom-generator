@@ -7,4 +7,9 @@ use App\QuotesController;
 
 $controller = new QuotesController;
 
-echo $controller->fetchRandomQuote();
+if ($_GET['prev']){
+    echo $controller->fetchPreviousQuote($_GET['id']);
+}
+else{
+    echo $controller->fetchNextQuote($_GET['id']);
+}
