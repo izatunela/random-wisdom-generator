@@ -15,7 +15,7 @@
             <div class="corner" id="rightTop"></div>
             <div class="corner" id="rightBottom"></div>
             <span id="author"></span>
-            <h1 id="id"></h1>
+<!--            <h1 id="id"></h1>-->
             <blockquote>
                 <p>
                     <i>&ldquo;<span id="quote"></span>&rdquo;</i>
@@ -36,22 +36,22 @@
         // let btprev = document.getElementById('prev');
         let id = 0;
 
-        window.onload = () => fetchQuote();
+        window.onload = () => fetchQuote(0,0,1);
 
         btnext.addEventListener('click',()=>{
-            fetchQuote();
+            fetchQuote(1,0,0);
         });
         // btprev.addEventListener('click',()=>{
         //     fetchQuote(1);
         // });
 
-        const fetchQuote = async (prev=0) => {
-            let response  = await fetch(`/process.php?id=${id}&prev=${prev}`);
+        const fetchQuote = async (next=0, prev=0, rand=0) => {
+            let response  = await fetch(`/process.php?id=${id}&next=${next}&prev=${prev}&rand=${rand}`);
             let quote = await response.json();
 
             container.innerHTML = quote.body.replace(/\n/g,'<br>');
             author.innerHTML = quote.author;
-            document.getElementById('id').innerHTML = quote.id;
+            // document.getElementById('id').innerHTML = quote.id;
             id = quote.id
         }
     </script>

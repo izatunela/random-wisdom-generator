@@ -6,10 +6,12 @@ require __DIR__ . '/../vendor/autoload.php';
 use App\QuotesController;
 
 $controller = new QuotesController;
-
-if ($_GET['prev']){
-    echo $controller->fetchPreviousQuote($_GET['id']);
+if ($_GET['rand']){
+    echo $controller->fetchRandomQuote();
 }
-else{
+// if ($_GET['prev']){
+//     echo $controller->fetchPreviousQuote($_GET['id']);
+// }
+if ($_GET['next']){
     echo $controller->fetchNextQuote($_GET['id']);
 }
