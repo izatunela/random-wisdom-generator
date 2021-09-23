@@ -2,8 +2,10 @@
 
 namespace App;
 
+const wew = 123;
 class QuotesController
 {
+    private const JSON_FLAGS = JSON_PRETTY_PRINT;
     /**
      * @var bool|string
      */
@@ -16,7 +18,6 @@ class QuotesController
      * @var int
      */
     private int $totalNumOfQuotes;
-
     /**
      * Constructor
      */
@@ -36,7 +37,7 @@ class QuotesController
         $randomKey = array_rand($allQuotes['quotes'],1);
         $quote = $allQuotes['quotes'][$randomKey];
 
-        return json_encode($quote);
+        return json_encode($quote,self::JSON_FLAGS);
     }
 
     /**
@@ -64,6 +65,6 @@ class QuotesController
      */
     private function readFile()
     {
-        return file_get_contents(__DIR__.'/test.json');
+        return file_get_contents(__DIR__.'/quotes.json');
     }
 }
