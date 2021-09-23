@@ -39,7 +39,7 @@
         window.onload = () => fetchQuote(0,0,1);
 
         btnext.addEventListener('click',()=>{
-            fetchQuote(1,0,0);
+            fetchQuote(1);
         });
         // btprev.addEventListener('click',()=>{
         //     fetchQuote(1);
@@ -51,7 +51,6 @@
 
             container.innerHTML = quote.body.replace(/\n/g,'<br>');
             author.innerHTML = quote.author;
-            // document.getElementById('id').innerHTML = quote.id;
             id = quote.id
         }
     </script>
