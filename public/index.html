@@ -34,7 +34,6 @@
         let author = document.getElementById('author');
         let btnext = document.getElementById('next');
         // let btprev = document.getElementById('prev');
-        let id = 0;
 
         window.onload = () => fetchQuote(0,0,1);
 
@@ -46,12 +45,11 @@
         // });
 
         const fetchQuote = async (next=0, prev=0, rand=0) => {
-            let response  = await fetch(`/process.php?id=${id}&next=${next}&prev=${prev}&rand=${rand}`);
+            let response  = await fetch(`/process.php?next=${next}&prev=${prev}&rand=${rand}`);
             let quote = await response.json();
 
             container.innerHTML = quote.body.replace(/\n/g,'<br>');
             author.innerHTML = quote.author;
-            id = quote.id
         }
     </script>
 </body>
