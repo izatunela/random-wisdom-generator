@@ -2,7 +2,6 @@
 
 namespace App;
 
-const wew = 123;
 class QuotesController
 {
     private const JSON_FLAGS = JSON_PRETTY_PRINT;
@@ -38,6 +37,15 @@ class QuotesController
         $quote = $allQuotes['quotes'][$randomKey];
 
         return json_encode($quote,self::JSON_FLAGS);
+    }
+
+    /**
+     * @param $id
+     * @return bool|string
+     */
+    public function fetchQuoteById($id)
+    {
+        return json_encode($this->quotes[$id-1] ?? new class{},self::JSON_FLAGS);
     }
 
     /**
