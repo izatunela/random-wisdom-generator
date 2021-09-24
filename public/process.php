@@ -19,7 +19,6 @@ if (isset($_GET['next'])){
     echo $controller->fetchNextQuote($_GET['id']);
     return;
 }
-
 // if ($_GET['prev']){
 //     echo $controller->fetchPreviousQuote($_GET['id']);
 // }
@@ -27,7 +26,8 @@ if (isset($_GET['next'])){
 
 if ($req_uri === '/quote/random') {
     echo $controller->fetchRandomQuote();
-    return;
-} else {
+} else if(preg_match('/\/quote\/(\d+)/', $req_uri,$groups)){
+    echo $controller->fetchQuoteById($groups[1]);
+} else{
     echo json_encode(new stdClass, JSON_PRETTY_PRINT);
 }
