@@ -91,3 +91,29 @@ footer a {
     color: royalblue;
     padding: 20px;
 }
+/****************API************************/
+#api-container{
+    width: 600px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+ #api-container {
+     font-weight: inherit;
+ }
+#resources{
+    margin-top: 50px;
+}
+#resources h2{
+    font-size: 2rem;
+    font-weight: inherit;
+}
+#resources h3{
+    font-weight: inherit;
+}
+#resources a{
+    text-decoration: none;
+    color: royalblue;
+}
+#back-btn{
+    margin-top: 50px;
+}
