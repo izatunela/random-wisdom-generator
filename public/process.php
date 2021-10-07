@@ -19,10 +19,6 @@ if (isset($_GET['next'])){
     echo $controller->fetchNextQuote($_GET['id']);
     return;
 }
-// if ($_GET['prev']){
-//     echo $controller->fetchPreviousQuote($_GET['id']);
-// }
-// $url = ($https ? "https" : "http") . "://$host$req_uri";
 
 if ($req_uri === '/quote/random') {
     echo $controller->fetchRandomQuote();
